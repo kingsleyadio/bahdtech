@@ -1,13 +1,10 @@
 package com.example.bahdtech.ui.main
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.bahdtech.R
 import com.example.bahdtech.api.GithubUser
-import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.i_users.*
+import com.example.bahdtech.databinding.IUsersBinding
 import ng.kingsley.android.extensions.loadImage
 
 /**
@@ -29,8 +26,8 @@ class UserAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.i_users, parent, false)
-        return ViewHolder(view).apply {
+        val binding = IUsersBinding.inflate(inflater, parent, false)
+        return ViewHolder(binding).apply {
             // do stuff
         }
     }
@@ -47,12 +44,9 @@ class UserAdapter(
         return dataProvider.itemAt(position).id.toLong()
     }
 
-    class ViewHolder(
-        override val containerView: View
-    ) : RecyclerView.ViewHolder(containerView),
-        LayoutContainer {
+    class ViewHolder(private val binding: IUsersBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: GithubUser) {
+        fun bind(item: GithubUser) = with(binding) {
             imageView.loadImage(item.avatarUrl)
             textView.text = item.username
         }

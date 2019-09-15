@@ -8,8 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.bahdtech.R
-import kotlinx.android.synthetic.main.main_fragment.*
+import com.example.bahdtech.databinding.MainFragmentBinding
 import ng.kingsley.android.recyclerview.adapter.AutomoreAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -19,6 +18,8 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 
+    private lateinit var binding: MainFragmentBinding
+
     private val viewModel by viewModel<MainViewModel>()
     private val userAdapter by lazy { UserAdapter(viewModel) }
 
@@ -27,10 +28,11 @@ class MainFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        binding = MainFragmentBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?): Unit = with(binding) {
         super.onViewCreated(view, savedInstanceState)
 
         recyclerView.apply {
