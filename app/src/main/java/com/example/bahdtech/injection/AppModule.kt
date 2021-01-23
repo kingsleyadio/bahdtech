@@ -2,6 +2,8 @@ package com.example.bahdtech.injection
 
 import com.example.bahdtech.api.GithubService
 import com.example.bahdtech.ui.main.MainViewModel
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -15,11 +17,13 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 object AppModule {
 
     private val appModule = module {
-
         single<Retrofit> {
+            val moshi = Moshi.Builder()
+                .addLast(KotlinJsonAdapterFactory())
+                .build()
             Retrofit.Builder()
                 .baseUrl("https://api.github.com")
-                .addConverterFactory(MoshiConverterFactory.create())
+                .addConverterFactory(MoshiConverterFactory.create(moshi))
                 .build()
         }
 
@@ -29,7 +33,6 @@ object AppModule {
     }
 
     private val uiModule = module {
-
         viewModel {
             MainViewModel(get())
         }

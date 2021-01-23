@@ -7,12 +7,12 @@ import com.squareup.moshi.Json
  * @since 14 Jul, 2019
  */
 class GithubUser(
-    @field:Json(name = "login")
+    @Json(name = "login")
     val username: String,
-    @field:Json(name = "id")
+    @Json(name = "id")
     val id: Int,
-    @field:Json(name = "avatar_url")
+    @Json(name = "avatar_url")
     val avatarUrl: String,
-    @field:Json(name = "repos_url")
+    @Json(name = "repos_url")
     val reposUrl: String
 )
