@@ -9,6 +9,9 @@ import com.example.bahdtech.api.GithubService
 import com.example.bahdtech.api.GithubUser
 import kotlinx.coroutines.launch
 
+import org.koin.android.annotation.KoinViewModel
+
+@KoinViewModel
 class MainViewModel(
     private val service: GithubService
 ) : ViewModel(), UserAdapter.DataProvider<GithubUser> {

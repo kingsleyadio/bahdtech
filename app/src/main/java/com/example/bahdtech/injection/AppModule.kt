@@ -1,12 +1,10 @@
 package com.example.bahdtech.injection
 
 import com.example.bahdtech.api.GithubService
-import com.example.bahdtech.ui.main.MainViewModel
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import org.koin.core.module.Module
-import org.koin.core.module.dsl.viewModel
-import org.koin.dsl.module
+import org.koin.core.annotation.Module
+import org.koin.core.annotation.Single
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
@@ -15,30 +13,22 @@ import retrofit2.create
  * @author ADIO Kingsley O.
  * @since 14 Jul, 2019
  */
+@Module
 object AppModule {
 
-    private val appModule = module {
-        single<Retrofit> {
-            val moshi = Moshi.Builder()
-                .addLast(KotlinJsonAdapterFactory())
-                .build()
-            Retrofit.Builder()
-                .baseUrl("https://api.github.com")
-                .addConverterFactory(MoshiConverterFactory.create(moshi))
-                .build()
-        }
-
-        single<GithubService> {
-            get<Retrofit>().create<GithubService>()
-        }
+    @Single
+    fun provideRetrofit(): Retrofit {
+        val moshi = Moshi.Builder()
+            .addLast(KotlinJsonAdapterFactory())
+            .build()
+        return Retrofit.Builder()
+            .baseUrl("https://api.github.com")
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .build()
     }
 
-    private val uiModule = module {
-        viewModel {
-            MainViewModel(get())
-        }
+    @Single
+    fun provideGithubService(retrofit: Retrofit): GithubService {
+        return retrofit.create<GithubService>()
     }
-
-
-    val modules: List<Module> = listOf(appModule, uiModule)
 }

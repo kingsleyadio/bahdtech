@@ -6,6 +6,8 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
+import org.koin.ksp.generated.defaultModule
+import org.koin.ksp.generated.module
 
 /**
  * @author ADIO Kingsley O.
@@ -18,7 +20,8 @@ class SimpleApplication : Application() {
         startKoin {
             androidLogger(Level.DEBUG)
             androidContext(this@SimpleApplication)
-            modules(AppModule.modules)
+            defaultModule()
+            modules(AppModule.module)
         }
     }
 }
