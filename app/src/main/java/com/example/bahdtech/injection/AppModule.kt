@@ -9,6 +9,7 @@ import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.create
 
 /**
  * @author ADIO Kingsley O.
@@ -28,7 +29,7 @@ object AppModule {
         }
 
         single<GithubService> {
-            get<Retrofit>().create(GithubService::class.java)
+            get<Retrofit>().create<GithubService>()
         }
     }
 
