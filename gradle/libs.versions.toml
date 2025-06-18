@@ -1,25 +1,25 @@
 [versions]
 androidGradlePlugin = "8.10.1" # Or the version compatible with your Android Studio
-kotlin = "1.9.22" # Check for the latest Kotlin version
-compileSdk = "34"
+kotlin = "2.1.21" # Check for the latest Kotlin version
+compileSdk = "36"
 minSdk = "21"
 targetSdk = "34"
-androidxActivity = "1.8.2"
-androidxAppcompat = "1.6.1"
-androidxCoreKtx = "1.12.0"
-androidxConstraintlayout = "2.1.4"
-androidxEspresso = "3.5.1"
-androidxJunit = "1.1.5"
-androidxLifecycle = "2.6.2" # Consolidate lifecycle versions
-androidxRecyclerview = "1.3.2"
+androidxActivity = "1.10.1"
+androidxAppcompat = "1.7.1"
+androidxCoreKtx = "1.16.0"
+androidxConstraintlayout = "2.2.1"
+androidxEspresso = "3.6.1"
+androidxJunit = "1.2.1"
+androidxLifecycle = "2.9.1" # Consolidate lifecycle versions
+androidxRecyclerview = "1.4.0"
 androidxSwipeRefreshLayout = "1.1.0" # This one seems stable, but double check
-androidxTestRunner = "1.5.2" # For testInstrumentationRunner
+androidxTestRunner = "1.6.2" # For testInstrumentationRunner
 appkommons = "1.2.0" # Check if there's a newer version
-coroutines = "1.7.3"
+coroutines = "1.10.2"
 junit = "4.13.2"
-koin = "3.5.3" # Koin has major version updates, be mindful of migration if going to v3+
-moshi = "1.15.0"
-retrofit = "2.9.0" # Retrofit 2.9.0 is still widely used, but check for potential 2.10.x or newer
+koin = "4.1.0" # Koin has major version updates, be mindful of migration if going to v3+
+moshi = "1.15.2"
+retrofit = "3.0.0" # Retrofit 2.9.0 is still widely used, but check for potential 2.10.x or newer
 
 [libraries]
 # AndroidX
