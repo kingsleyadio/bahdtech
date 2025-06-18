@@ -79,6 +79,7 @@ dependencies {
 
     implementation(libs.appkommons.bootstrap)
     implementation(libs.appkommons.recyclerview)
+    implementation(libs.appkommons.view)
 
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)

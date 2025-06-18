@@ -56,6 +56,7 @@ koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compos
 # AppKommons
 appkommons-bootstrap = { group = "com.kingsleyadio.appcommons", name = "bootstrap", version.ref = "appkommons" }
 appkommons-recyclerview = { group = "com.kingsleyadio.appcommons", name = "recyclerview", version.ref = "appkommons" }
+appkommons-view = { group = "com.kingsleyadio.appcommons", name = "view", version.ref = "appkommons" }
 
 # Testing
 junit = { group = "junit", name = "junit", version.ref = "junit" }
