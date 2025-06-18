@@ -14,7 +14,6 @@ dependencyResolutionManagement {
             credentials.username = prop("GITHUB_ACTOR")
             credentials.password = prop("GITHUB_TOKEN")
         }
-        //maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     }
 }
 
