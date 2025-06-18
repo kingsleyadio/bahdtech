@@ -3,11 +3,10 @@
 buildscript {
     repositories {
         google()
-        jcenter()
-
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.0-alpha04'
+        classpath 'com.android.tools.build:gradle:7.0.4'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.30-RC"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -17,8 +16,12 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
-        maven { url "https://dl.bintray.com/kingsleyadio/maven" }
+        mavenCentral()
+        maven {
+            url "https://maven.pkg.github.com/kingsleyadio/android_commons"
+            credentials.username = prop("GITHUB_ACTOR")
+            credentials.password = prop("GITHUB_TOKEN")
+        }
         maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     }
 }
@@ -33,4 +36,13 @@ subprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+
+String prop(String key, String fallback = "") {
+    return providers.gradleProperty(key)
+        .forUseAtConfigurationTime()
+        .orElse(providers.environmentVariable(key))
+        .orNull
+        ?: fallback.ifEmpty { error("$key not found") }
 }
