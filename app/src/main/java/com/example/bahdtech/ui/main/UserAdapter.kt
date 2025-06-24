@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bahdtech.api.GithubUser
 import com.example.bahdtech.databinding.IUsersBinding
-import ng.kingsley.android.extensions.loadImage
+import com.kingsleyadio.appcommons.view.extensions.loadImage
 
 /**
  * @author ADIO Kingsley O.

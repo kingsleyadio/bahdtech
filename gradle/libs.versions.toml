@@ -1,0 +1,68 @@
+[versions]
+androidGradlePlugin = "8.10.1" # Or the version compatible with your Android Studio
+kotlin = "2.1.21" # Check for the latest Kotlin version
+compileSdk = "36"
+minSdk = "21"
+targetSdk = "34"
+androidxActivity = "1.10.1"
+androidxAppcompat = "1.7.1"
+androidxCoreKtx = "1.16.0"
+androidxConstraintlayout = "2.2.1"
+androidxEspresso = "3.6.1"
+androidxJunit = "1.2.1"
+androidxLifecycle = "2.9.1"
+androidxRecyclerview = "1.4.0"
+androidxSwipeRefreshLayout = "1.1.0"
+androidxTestRunner = "1.6.2"
+appkommons = "1.2.0"
+coroutines = "1.10.2"
+junit = "4.13.2"
+koin = "4.1.0"
+moshi = "1.15.2"
+retrofit = "3.0.0"
+
+[libraries]
+# AndroidX
+androidx-activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "androidxActivity" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppcompat" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCoreKtx" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidxConstraintlayout" }
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "androidxLifecycle" }
+androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "androidxLifecycle" }
+androidx-lifecycle-common-java8 = { group = "androidx.lifecycle", name = "lifecycle-common-java8", version.ref = "androidxLifecycle" }
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "androidxRecyclerview" }
+androidx-swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "androidxSwipeRefreshLayout" }
+
+# Kotlin
+kotlin-stdlib-jdk8 = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+
+# Networking
+retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
+moshi-core = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
+moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
+
+# Koin (Dependency Injection)
+koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+koin-androidx-navigation = { group = "io.insert-koin", name = "koin-androidx-navigation", version.ref = "koin" }
+koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
+
+# AppKommons
+appkommons-bootstrap = { group = "com.kingsleyadio.appcommons", name = "bootstrap", version.ref = "appkommons" }
+appkommons-recyclerview = { group = "com.kingsleyadio.appcommons", name = "recyclerview", version.ref = "appkommons" }
+appkommons-view = { group = "com.kingsleyadio.appcommons", name = "view", version.ref = "appkommons" }
+
+# Testing
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+koin-test = { group = "io.insert-koin", name = "koin-test", version.ref = "koin" }
+androidx-test-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxJunit" }
+androidx-test-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidxEspresso" }
+androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidxTestRunner" }
+
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
