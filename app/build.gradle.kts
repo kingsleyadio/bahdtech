@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -38,6 +39,16 @@ android {
         viewBinding = true
         buildConfig = true
     }
+
+    sourceSets {
+        named("main") {
+            kotlin.srcDirs(
+                "build/generated/ksp/main/kotlin",
+                "build/generated/ksp/debug/kotlin",
+                "build/generated/ksp/release/kotlin"
+            )
+        }
+    }
 }
 
 dependencies {
@@ -67,6 +78,8 @@ dependencies {
 
     implementation(libs.koin.core)
     implementation(libs.koin.android)
+    implementation(libs.koin.annotations)
+    ksp(libs.koin.ksp.compiler)
 
     implementation(libs.androidx.constraintlayout)
 
