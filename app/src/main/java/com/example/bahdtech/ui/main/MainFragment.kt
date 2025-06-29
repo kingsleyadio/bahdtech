@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bahdtech.databinding.MainFragmentBinding
+import com.example.bahdtech.injection.injectViewModel
 import com.kingsleyadio.appcommons.recyclerview.adapter.AutomoreAdapter
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
 
@@ -19,7 +19,7 @@ class MainFragment : Fragment() {
 
     private lateinit var binding: MainFragmentBinding
 
-    private val viewModel by viewModel<MainViewModel>()
+    private val viewModel by injectViewModel<MainViewModel>()
     private val userAdapter by lazy { UserAdapter(viewModel) }
 
     override fun onCreateView(

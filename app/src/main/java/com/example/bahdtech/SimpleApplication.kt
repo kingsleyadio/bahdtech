@@ -1,24 +1,26 @@
 package com.example.bahdtech
 
 import android.app.Application
-import com.example.bahdtech.injection.AppModule
-import org.koin.android.ext.koin.androidContext
-import org.koin.android.ext.koin.androidLogger
-import org.koin.core.context.startKoin
-import org.koin.core.logger.Level
+import com.example.bahdtech.injection.AppGraphProvider
+import dev.zacsweers.metro.AppScope
+import dev.zacsweers.metro.DependencyGraph
+import dev.zacsweers.metro.Provides
+import dev.zacsweers.metro.createGraphFactory
 
 /**
  * @author ADIO Kingsley O.
  * @since 14 Jul, 2019
  */
-class SimpleApplication : Application() {
+class SimpleApplication : Application(), AppGraphProvider {
 
-    override fun onCreate() {
-        super.onCreate()
-        startKoin {
-            androidLogger(Level.DEBUG)
-            androidContext(this@SimpleApplication)
-            modules(AppModule.modules)
-        }
+    override val appGraph = createGraphFactory<AppGraph.Factory>().create(this)
+}
+
+
+@DependencyGraph(AppScope::class, isExtendable = true)
+interface AppGraph {
+    @DependencyGraph.Factory
+    interface Factory {
+        fun create(@Provides app: Application): AppGraph
     }
 }

@@ -7,9 +7,16 @@ import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.example.bahdtech.api.GithubService
 import com.example.bahdtech.api.GithubUser
+import com.example.bahdtech.injection.ViewModelScope
+import dev.zacsweers.metro.ClassKey
+import dev.zacsweers.metro.ContributesIntoMap
+import dev.zacsweers.metro.Inject
+import dev.zacsweers.metro.binding
 import kotlinx.coroutines.launch
 
-class MainViewModel(
+@ClassKey(MainViewModel::class)
+@ContributesIntoMap(ViewModelScope::class, binding<ViewModel>())
+class MainViewModel @Inject constructor(
     private val service: GithubService
 ) : ViewModel(), UserAdapter.DataProvider<GithubUser> {
 
